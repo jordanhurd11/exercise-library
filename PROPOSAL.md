@@ -4,11 +4,10 @@
 A searchable exercise library that lets users browse exercises by muscle group or equipment, view detailed descriptions, and save favorites — designed to eventually merge with my workout tracker (MP2).
 
 ## Which API I'm using
-**wger Workout Manager REST API** — https://wger.de/api/v2/
-No API key required. Works directly from GitHub Pages.
+MUSCLEWIKI - https://api.musclewiki.com/
 
 ## Why I chose this
-My MP2 project is a full workout tracker with a hardcoded list of ~100 exercises. This project solves a real limitation of that app: users can't discover new exercises or learn how to perform them. By pulling from a real exercise database with muscle groups, equipment, and descriptions, I can eventually replace the static list with live data and add an "Add to Workout" button that passes exercises directly into the tracker.
+My MP2 project is a full workout tracker with a hardcoded list. This project solves a real limitation of that app: users can't discover new exercises or learn how to perform them. By pulling from a real exercise database with muscle groups, equipment, and descriptions, I can eventually replace the static list with live data and add an "Add to Workout" button that passes exercises directly into the tracker.
 
 ## Core features
 1. Browse all exercises in a card grid (paginated)
@@ -23,6 +22,7 @@ My MP2 project is a full workout tracker with a hardcoded list of ~100 exercises
 - Empty/loading/error states for all fetch scenarios
 
 ## What I don't know yet
-- How wger paginates its API responses and how to fetch all pages automatically
-- How to handle exercises that come back with HTML in the description field
-- How async/await interacts with chained `.then()` calls when fetching multiple endpoints in parallel (`Promise.all`)
+- How to use an API key
+- How to fetch data from API
+- Loading, Error, and Empty States
+- Using Vercel (server-side Code)
