@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">💪</span>
+                <span class="logo-text">Exercise Library</span>
+            </div>
+            <p class="header-sub">Browse exercises by muscle group, equipment, or keyword</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+
+        <!-- Search + Filter Bar -->
+        <section class="filter-bar">
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Search exercises..."
+                    autocomplete="off"
+                >
+            </div>
+
+            <div class="filter-group">
+                <label for="categoryFilter" class="filter-label">Muscle Group</label>
+                <select id="categoryFilter" class="filter-select">
+                    <option value="">All Muscle Groups</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="equipmentFilter" class="filter-label">Equipment</label>
+                <select id="equipmentFilter" class="filter-select">
+                    <option value="">All Equipment</option>
+                </select>
+            </div>
+
+            <button id="resetBtn" class="btn-reset">Reset</button>
+        </section>
+
+        <!-- Results count + sort -->
+        <div class="results-bar" id="resultsBar">
+            <span id="resultsCount"></span>
+            <div class="sort-group">
+                <label for="sortSelect" class="filter-label">Sort</label>
+                <select id="sortSelect" class="filter-select filter-select-sm">
+                    <option value="name-asc">Name A–Z</option>
+                    <option value="name-desc">Name Z–A</option>
+                    <option value="muscle">By Muscle</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Loading state -->
+        <div id="loadingState" class="loading-state">
+            <div class="spinner"></div>
+            <p>Loading exercises…</p>
+        </div>
+
+        <!-- Error state -->
+        <div id="errorState" class="error-state hidden">
+            <p class="error-icon">⚠️</p>
+            <p class="error-title">Couldn't load exercises</p>
+            <p class="error-sub">Check your connection and try again.</p>
+            <button id="retryBtn" class="btn-retry">Retry</button>
+        </div>
+
+        <!-- Empty state -->
+        <div id="emptyState" class="empty-state hidden">
+            <p class="empty-icon">🔎</p>
+            <p class="empty-title">No exercises found</p>
+            <p class="empty-sub">Try a different search or reset your filters.</p>
+        </div>
+
+        <!-- Exercise grid -->
+        <div id="exerciseGrid" class="exercise-grid hidden"></div>
+
+        <!-- Pagination -->
+        <div id="pagination" class="pagination hidden">
+            <button id="prevPageBtn" class="btn-page" disabled>&#8249; Prev</button>
+            <span id="pageInfo" class="page-info"></span>
+            <button id="nextPageBtn" class="btn-page">Next &#8250;</button>
+        </div>
+
+    </main>
+
+    <!-- Exercise Detail Modal -->
+    <div id="detailModal" class="modal hidden">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-panel">
+            <button class="modal-close" id="modalCloseBtn">&times;</button>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>Data from <a href="https://wger.de" target="_blank">wger Workout Manager API</a> · No account or API key required</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
